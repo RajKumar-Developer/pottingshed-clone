@@ -48,3 +48,75 @@
             </div>
         </div>
       </div>
+
+
+
+
+
+import './style.css'
+
+document.addEventListener("DOMContentLoaded", function () {
+  const colors = ["text-blue-500", "text-red-500", "text-green-500", "text-yellow-500", "text-purple-500"];
+  const bgColors = ["bg-blue-500", "bg-red-500", "bg-green-500", "bg-yellow-500", "bg-purple-500"];
+  const textHoverColors = ["hover:text-blue-500", "hover:text-red-500", "hover:text-green-500", "hover:text-yellow-500", "hover:text-purple-500"];
+  const borderHoverColors = ["hover:border-blue-500", "hover:border-red-500", "hover:border-green-500", "hover:border-yellow-500", "hover:border-purple-500"];
+  const svgColors = ["fill-blue-500", "fill-red-500", "fill-green-500", "fill-yellow-500", "fill-purple-500"];
+  const hexColors = ["#3B82F6", "#EF4444", "#10B981", "#EAB308", "#A855F7"]; // Hex codes for favicon
+
+  let currentIndex = 0; // To track the current color index
+
+  // Function to update favicon dynamically based on the theme
+  function dynamicColorShift(color) {
+    const svg = `
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="700.000000pt" height="700.000000pt" viewBox="0 0 700.000000 700.000000" preserveAspectRatio="xMidYMid meet">
+          <g transform="translate(0.000000,700.000000) scale(0.100000,-0.100000)" fill="${color}" stroke="none">
+          <path d="M6 6052 ..."/> 
+          </g>
+        </svg>
+    `;
+
+    const encodedSvg = `data:image/svg+xml,${encodeURIComponent(svg)}`;
+    document.getElementById("dynamic-favicon").setAttribute("href", encodedSvg);
+  }
+
+  const updateDynamicColors=()=> {
+    // Remove previous color classes
+    // document.getElementById("logo-highlight").classList.remove(...colors);
+    document.querySelectorAll(".dynamic-color").forEach(el => el.classList.remove(...colors));
+    document.querySelectorAll(".dynamic-bg, .preloader").forEach(el => el.classList.remove(...bgColors));
+    // document.getElementById("email-input").classList.remove(...colors);
+    // document.getElementById("subscribe-button").classList.remove(...bgColors);
+    document.getElementById("dynamic-bg").classList.remove(...bgColors);
+    document.querySelectorAll(".dynamic-hover").forEach(button => button.classList.remove(...textHoverColors, ...borderHoverColors));
+    document.querySelectorAll("#animated-shape").forEach(shape => shape.classList.remove(...svgColors));
+
+    // Apply new colors
+    const selectedTextColor = colors[currentIndex];
+    const selectedBgColor = bgColors[currentIndex];
+    const selectedTextHover = textHoverColors[currentIndex];
+    const selectedBorderHover = borderHoverColors[currentIndex];
+    const selectedSvgColor = svgColors[currentIndex];
+    const selectedHexColor = hexColors[currentIndex];
+
+    // document.getElementById("logo-highlight").classList.add(selectedTextColor);
+    document.querySelectorAll(".dynamic-color").forEach(el => el.classList.add(selectedTextColor));
+    document.querySelectorAll(".dynamic-bg, .preloader").forEach(el => el.classList.add(selectedBgColor));
+    // document.getElementById("email-input").classList.add(selectedTextColor);
+    // document.getElementById("subscribe-button").classList.add(selectedBgColor);
+    document.getElementById("dynamic-bg").classList.add(selectedBgColor);
+    document.querySelectorAll(".dynamic-hover").forEach(button => button.classList.add(selectedTextHover, selectedBorderHover));
+    document.querySelectorAll("#animated-shape").forEach(shape => shape.classList.add(selectedSvgColor));
+
+    // Update the favicon dynamically
+    dynamicColorShift(selectedHexColor);
+
+    // Move to the next color, loop back when reaching the end
+    currentIndex = (currentIndex + 1) % colors.length;
+  }
+
+  // Initial call
+  updateDynamicColors();
+
+  // Change color every 5 seconds
+  setInterval(updateDynamicColors, 5000);
+});
