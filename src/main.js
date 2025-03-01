@@ -1,7 +1,9 @@
 import './style.css'
 
 
-function generateFavicon(color) {
+
+
+function dynamicColorShift(color) {
   const svg = `
       <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="700.000000pt" height="700.000000pt" viewBox="0 0 700.000000 700.000000" preserveAspectRatio="xMidYMid meet">
         <g transform="translate(0.000000,700.000000) scale(0.100000,-0.100000)" fill="${color}" stroke="none">
@@ -11,6 +13,7 @@ function generateFavicon(color) {
         </g>
       </svg>
   `;
+    
 
   const encodedSvg = `data:image/svg+xml,${encodeURIComponent(svg)}`;
   document.getElementById("dynamic-favicon").setAttribute("href", encodedSvg);
@@ -23,8 +26,8 @@ function getRandomColor() {
 
 // Change favicon color every 5 seconds
 setInterval(() => {
-  generateFavicon(getRandomColor());
+  dynamicColorShift(getRandomColor());
 }, 5000);
 
 // Initial favicon load
-generateFavicon(getRandomColor());
+dynamicColorShift(getRandomColor());
