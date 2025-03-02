@@ -1,0 +1,22 @@
+{
+    "rewrites": [
+      { "source": "/team", "destination": "/team.html" },
+      { "source": "/work", "destination": "/work.html" },
+      { "source": "/journal", "destination": "/journal.html" },
+      { "source": "/contact", "destination": "/contact.html" },
+      { "source": "/about", "destination": "/about.html" }
+    ],
+    "redirects": [
+      { "source": "/old-page", "destination": "/new-page", "permanent": true }
+    ],
+    "cleanUrls": true,
+    "headers": [
+      {
+        "source": "/(.*)",
+        "headers": [
+          { "key": "Cache-Control", "value": "max-age=0, must-revalidate" }
+        ]
+      }
+    ]
+  }
+  
