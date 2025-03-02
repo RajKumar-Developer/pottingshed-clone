@@ -18,6 +18,17 @@ html,body{
   cursor: none;
 }
 
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700; /* For headings, using a bolder weight */
+}
+
+
+
 /* Custom Cursor */
 #custom-cursor {
   position: fixed;
@@ -97,10 +108,6 @@ html,body{
   align-items: center;
 }
 
-.ps-logo{
-  fill: #fff;
-}
-
 @keyframes blink {
   0% {
     opacity: 1
@@ -131,32 +138,61 @@ html,body{
   75% {transform: translateY(20px);}
 }
 
-
-
-
-.letter {
-  display: inline-block;
-  animation: bounceWave 0.4s ease-in forwards;
-  animation-delay: 0.2s;
-  font-weight: bold;
+.ps-logo{
+  fill: #fff;
 }
 
-/* Apply staggered delays */
-.letter:nth-child(1) { animation-delay: 0.1s; }
-.letter:nth-child(2) { animation-delay: 0.2s; }
-.letter:nth-child(3) { animation-delay: 0.3s; }
-.letter:nth-child(4) { animation-delay: 0.4s; }
-.letter:nth-child(5) { animation-delay: 0.5s; }
-.letter:nth-child(6) { animation-delay: 0.6s; }
 
-.letter:nth-child(7) { animation-delay: 0.7s; }
-.letter:nth-child(8) { animation-delay: 0.8s; }
-.letter:nth-child(9) { animation-delay: 0.9s; }
-.letter:nth-child(10) { animation-delay: 1s; }
-.letter:nth-child(11) { animation-delay: 1.2s; }
-.letter:nth-child(12) { animation-delay: 1.4s; }
-.letter:nth-child(13) { animation-delay: 1.6s; }
-.letter:nth-child(14) { animation-delay: 1.8s; }
+@keyframes fadeInBounce {
+  0% { opacity: 0; transform: translateY(-20px); }
+  50% { opacity: 0.5; transform: translateY(5px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.header {
+  position: fixed;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 50;
+  background-color: transparent;
+}
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .header {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    top: 30px;
+    padding: 10px;
+  }
+}
+@media (max-width: 480px) {
+  .header {
+    top: 10px;
+    padding: 0px;
+  }
+}
+
+.logo-container {
+  display: flex;
+  margin-right: 80px;
+  align-items: center;
+  transform: scale(1.4);
+}
+
 
 .preloader {
   z-index: 9999999999;

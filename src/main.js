@@ -1,16 +1,57 @@
-import './style.css'
+import "./style.css";
+
+
+
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
   const cursor = document.getElementById("custom-cursor");
 
-  const colors = ["text-blue-500", "text-red-500", "text-green-500", "text-yellow-500", "text-purple-500"];
-  const bgColors = ["bg-blue-500", "bg-red-500", "bg-green-500", "bg-yellow-500", "bg-purple-500"];
-  const textHoverColors = ["hover:text-blue-500", "hover:text-red-500", "hover:text-green-500", "hover:text-yellow-500", "hover:text-purple-500"];
-  const borderHoverColors = ["hover:border-blue-500", "hover:border-red-500", "hover:border-green-500", "hover:border-yellow-500", "hover:border-purple-500"];
-  const svgColors = ["fill-blue-500", "fill-red-500", "fill-green-500", "fill-yellow-500", "fill-purple-500"];
-  const placeholderColors = ["placeholder-blue-500", "placeholder-red-500", "placeholder-green-500", "placeholder-yellow-500", "placeholder-purple-500"];
-  const hexColors = ["#3B82F6", "#EF4444", "#10B981", "#EAB308", "#A855F7"]; 
-  const cursorColor =["#3B82F6", "#EF4444", "#10B981", "#EAB308", "#A855F7"];
+  const colors = [
+    "text-blue-500",
+    "text-red-500",
+    "text-green-500",
+    "text-yellow-500",
+    "text-purple-500",
+  ];
+  const bgColors = [
+    "bg-blue-500",
+    "bg-red-500",
+    "bg-green-500",
+    "bg-yellow-500",
+    "bg-purple-500",
+  ];
+  const textHoverColors = [
+    "hover:text-blue-500",
+    "hover:text-red-500",
+    "hover:text-green-500",
+    "hover:text-yellow-500",
+    "hover:text-purple-500",
+  ];
+  const borderHoverColors = [
+    "hover:border-blue-500",
+    "hover:border-red-500",
+    "hover:border-green-500",
+    "hover:border-yellow-500",
+    "hover:border-purple-500",
+  ];
+  const svgColors = [
+    "fill-blue-500",
+    "fill-red-500",
+    "fill-green-500",
+    "fill-yellow-500",
+    "fill-purple-500",
+  ];
+  const placeholderColors = [
+    "placeholder-blue-500",
+    "placeholder-red-500",
+    "placeholder-green-500",
+    "placeholder-yellow-500",
+    "placeholder-purple-500",
+  ];
+  const hexColors = ["#3B82F6", "#EF4444", "#10B981", "#EAB308", "#A855F7"];
+  const cursorColor = ["#3B82F6", "#EF4444", "#10B981", "#EAB308", "#A855F7"];
   let currentIndex = 0; // To track the current color index
 
   function changeDotColors(dColor, gColor) {
@@ -20,16 +61,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const shed = document.querySelectorAll(".secondary-colour");
 
     // Change the fill color for d-dot elements
-    dDots.forEach(dot => {
-        dot.setAttribute("fill", dColor); // Use "stroke" if it's a stroke-based SVG
+    dDots.forEach((dot) => {
+      dot.setAttribute("fill", dColor); // Use "stroke" if it's a stroke-based SVG
     });
-    shed.forEach(dot => {
+    shed.forEach((dot) => {
       dot.setAttribute("fill", dColor); // Use "stroke" if it's a stroke-based SVG
     });
 
     // Change the fill color for g-dot elements
-    gDots.forEach(dot => {
-        dot.setAttribute("fill", gColor);
+    gDots.forEach((dot) => {
+      dot.setAttribute("fill", gColor);
     });
   }
 
@@ -50,86 +91,91 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   const updateDynamicColors = () => {
-  // Select elements
-  const dynamicElements = document.querySelectorAll(".dynamic-color");
-  const bgElements = document.querySelectorAll(".dynamic-bg, .preloader");
-  const emailInput = document.getElementById("email-input");
-  const subscribeButton = document.getElementById("subscribe-button");
-  const dynamicBg = document.getElementById("dynamic-bg");
-  const dynamicHoverElements = document.querySelectorAll(".dynamic-hover");
-  const animatedShapes = document.querySelectorAll("#animated-shape");
+    // Select elements
+    const dynamicElements = document.querySelectorAll(".dynamic-color");
+    const bgElements = document.querySelectorAll(".dynamic-bg, .preloader");
+    const emailInput = document.getElementById("email-input");
+    const subscribeButton = document.getElementById("subscribe-button");
+    const dynamicBg = document.getElementById("dynamic-bg");
+    const dynamicHoverElements = document.querySelectorAll(".dynamic-hover");
+    const animatedShapes = document.querySelectorAll("#animated-shape");
 
-  // Remove only dynamic classes, keeping other necessary styles
-  dynamicElements.forEach(el => el.classList.remove(...colors));
-  bgElements.forEach(el => el.classList.remove(...bgColors));
-  emailInput.classList.remove(...colors, ...placeholderColors);
-  subscribeButton.classList.remove(...bgColors);
-  dynamicBg.classList.remove(...bgColors);
-  dynamicHoverElements.forEach(el => el.classList.remove(...textHoverColors, ...borderHoverColors));
-  animatedShapes.forEach(el => el.classList.remove(...svgColors));
+    // Remove only dynamic classes, keeping other necessary styles
+    dynamicElements.forEach((el) => el.classList.remove(...colors));
+    bgElements.forEach((el) => el.classList.remove(...bgColors));
+    emailInput.classList.remove(...colors, ...placeholderColors);
+    subscribeButton.classList.remove(...bgColors);
+    dynamicBg.classList.remove(...bgColors);
+    dynamicHoverElements.forEach((el) =>
+      el.classList.remove(...textHoverColors, ...borderHoverColors)
+    );
+    animatedShapes.forEach((el) => el.classList.remove(...svgColors));
 
-  // Apply new colors
-  const selectedTextColor = colors[currentIndex];
-  const selectedBgColor = bgColors[currentIndex];
-  const selectedTextHover = textHoverColors[currentIndex];
-  const selectedBorderHover = borderHoverColors[currentIndex];
-  const selectedSvgColor = svgColors[currentIndex];
-  const selectedPlaceholder = placeholderColors[currentIndex];
-  const selectedHexColor = hexColors[currentIndex];
-  const selectedCursorColor = cursorColor[currentIndex];
+    // Apply new colors
+    const selectedTextColor = colors[currentIndex];
+    const selectedBgColor = bgColors[currentIndex];
+    const selectedTextHover = textHoverColors[currentIndex];
+    const selectedBorderHover = borderHoverColors[currentIndex];
+    const selectedSvgColor = svgColors[currentIndex];
+    const selectedPlaceholder = placeholderColors[currentIndex];
+    const selectedHexColor = hexColors[currentIndex];
+    const selectedCursorColor = cursorColor[currentIndex];
 
-  // Apply new color classes without breaking other styles
-  dynamicElements.forEach(el => el.classList.add(selectedTextColor));
-  bgElements.forEach(el => el.classList.add(selectedBgColor));
-  emailInput.classList.add(selectedTextColor, selectedPlaceholder);
-  subscribeButton.classList.add(selectedBgColor);
-  dynamicBg.classList.add(selectedBgColor);
-  dynamicHoverElements.forEach(el => el.classList.add(selectedTextHover, selectedBorderHover));
-  animatedShapes.forEach(el => el.classList.add(selectedSvgColor));
+    // Apply new color classes without breaking other styles
+    dynamicElements.forEach((el) => el.classList.add(selectedTextColor));
+    bgElements.forEach((el) => el.classList.add(selectedBgColor));
+    emailInput.classList.add(selectedTextColor, selectedPlaceholder);
+    subscribeButton.classList.add(selectedBgColor);
+    dynamicBg.classList.add(selectedBgColor);
+    dynamicHoverElements.forEach((el) =>
+      el.classList.add(selectedTextHover, selectedBorderHover)
+    );
+    animatedShapes.forEach((el) => el.classList.add(selectedSvgColor));
 
-  // Update cursor color dynamically
-  document.documentElement.style.setProperty("--cursor-color", selectedCursorColor);
+    // Update cursor color dynamically
+    document.documentElement.style.setProperty(
+      "--cursor-color",
+      selectedCursorColor
+    );
 
-  // Update the favicon dynamically
-  // dynamicColorShift(selectedCursorColor);
+    // Update the favicon dynamically
+    // dynamicColorShift(selectedCursorColor);
 
-  // Update the favicon dynamically
-  dynamicColorShift(selectedHexColor);
+    // Update the favicon dynamically
+    dynamicColorShift(selectedHexColor);
 
-  setTimeout(() => {
-    changeDotColors(selectedHexColor, selectedHexColor); // Change to orange and green
-}, 100);
+    setTimeout(() => {
+      changeDotColors(selectedHexColor, selectedHexColor); // Change to orange and green
+    }, 100);
 
-  // Move to the next color, loop back when reaching the end
-  currentIndex = (currentIndex + 1) % colors.length;
-};
-
+    // Move to the next color, loop back when reaching the end
+    currentIndex = (currentIndex + 1) % colors.length;
+  };
 
   // Initial call
   updateDynamicColors();
 
   // Change color every 5 seconds
-  setInterval(updateDynamicColors, 5000);
+  setInterval(updateDynamicColors, 2000);
 
-   // Move the cursor with mouse movement
-   document.addEventListener("mousemove", function (event) {
+  // Move the cursor with mouse movement
+  document.addEventListener("mousemove", function (event) {
     cursor.style.left = event.clientX + "px";
     cursor.style.top = event.clientY + "px";
+  });
 });
-});
-
-
 
 // founder's blob setup
 document.addEventListener("DOMContentLoaded", function () {
   // Register MorphSVGPlugin
+  let MorphSVGPlugin
   gsap.registerPlugin(MorphSVGPlugin);
 
   // Define the paths for morphing
   const maskPaths = [
-      "M193.09 0.1 C109.19 -4.66 -58.55 214.66 20.84 302.31 95.99 380.82 135.51 309.24 189.81 306.26 280.76 304.54 291.95 370.99 332.59 333.22 336.46 324.43 393.79 256.46 335.76 137.83 310.95 85.69 290.48 41.14 263.72 22.59 238.33 5.22 221.12 1.77 193.09 0.1",
-      "M58.29 44.07 C27.07 87.33 -29.12 184.7 18.28 249.54 47.4 64.84 77.19 92.34 146.82 89.52 116.82 -33.01 133.79 -47.56 91.85 -107.92 40.32 -195.07 295.08 21.78 243.31 2.71 221.04 -4.57 89.52 0.8 58.29 44.07 Z",
-      "M191.86 0.06 C107.98 -4.12 -59.9 229.36 21.86 307.42 106.37 -11.44 154.86 -9.81 100.26 94.22 150.27 59.39 5.93 -4.4 76.28 -84.46 14.71 -214.14 -24.52 -54.49 -49.38 -102.45 -75.74 -119.87 223.53 1.91 191.86 0.06 Z"
+    "M193.09 0.1 C109.19 -4.66 -58.55 214.66 20.84 302.31 95.99 380.82 135.51 309.24 189.81 306.26 280.76 304.54 291.95 370.99 332.59 333.22 336.46 324.43 393.79 256.46 335.76 137.83 310.95 85.69 290.48 41.14 263.72 22.59 238.33 5.22 221.12 1.77 193.09 0.1",
+    "M58.29 44.07 C27.07 87.33 -29.12 184.7 18.28 249.54 47.4 64.84 77.19 92.34 146.82 89.52 116.82 -33.01 133.79 -47.56 91.85 -107.92 40.32 -195.07 295.08 21.78 243.31 2.71 221.04 -4.57 89.52 0.8 58.29 44.07 Z",
+    "M191.86 0.06 C107.98 -4.12 -59.9 229.36 21.86 307.42 106.37 -11.44 154.86 -9.81 100.26 94.22 150.27 59.39 5.93 -4.4 76.28 -84.46 14.71 -214.14 -24.52 -54.49 -49.38 -102.45 -75.74 -119.87 223.53 1.91 191.86 0.06 Z",
   ];
 
   // Select the mask path
@@ -138,38 +184,37 @@ document.addEventListener("DOMContentLoaded", function () {
   let index = 0;
 
   function animateMask() {
-      // Morph to the next path
-      gsap.to(maskPath, {
-          duration: 3, // Duration of each transition
-          ease: "power1.inOut", // Smooth easing
-          morphSVG: maskPaths[index], // Morph to the next path
-          onComplete: () => {
-              // Update the index for the next path
-              index = (index + 1) % maskPaths.length;
-              // Restart the animation
-              animateMask();
-          }
-      });
+    // Morph to the next path
+    gsap.to(maskPath, {
+      duration: 3, // Duration of each transition
+      ease: "power1.inOut", // Smooth easing
+      morphSVG: maskPaths[index], // Morph to the next path
+      onComplete: () => {
+        // Update the index for the next path
+        index = (index + 1) % maskPaths.length;
+        // Restart the animation
+        animateMask();
+      },
+    });
   }
 
   // Start the animation
   animateMask();
 });
 
-
 document.addEventListener("DOMContentLoaded", function () {
   const testimonials = document.querySelectorAll(".testimonials-slideshow li");
   let currentIndex = 0;
 
   function showNextTestimonial() {
-      // Hide the current testimonial
-      testimonials[currentIndex].classList.remove("active");
+    // Hide the current testimonial
+    testimonials[currentIndex].classList.remove("active");
 
-      // Move to the next testimonial (looping back if necessary)
-      currentIndex = (currentIndex + 1) % testimonials.length;
+    // Move to the next testimonial (looping back if necessary)
+    currentIndex = (currentIndex + 1) % testimonials.length;
 
-      // Show the next testimonial
-      testimonials[currentIndex].classList.add("active");
+    // Show the next testimonial
+    testimonials[currentIndex].classList.add("active");
   }
 
   // Initially show the first testimonial
@@ -177,4 +222,71 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Set interval for automatic transition
   setInterval(showNextTestimonial, 5000); // Change every 5 seconds
+});
+
+const grids = document.querySelectorAll(".group");
+const imageSets = [
+  [
+    "https://df93k41893ij1.cloudfront.net/uploads/public/605/8b9/d80/thumb_6329_1920_1080_0_0_crop.jpg",
+    "https://df93k41893ij1.cloudfront.net/uploads/public/605/8b9/ac7/thumb_6325_1920_1080_0_0_crop.jpg",
+    "https://df93k41893ij1.cloudfront.net/uploads/public/605/8ba/ad7/thumb_6336_1920_1080_0_0_crop.jpg",
+    "https://df93k41893ij1.cloudfront.net/uploads/public/605/8ba/665/thumb_6331_1920_1080_0_0_crop.jpg",
+    "https://df93k41893ij1.cloudfront.net/uploads/public/605/8ba/190/thumb_6330_1920_1080_0_0_crop.jpg",
+    "https://df93k41893ij1.cloudfront.net/uploads/public/605/8b9/a19/thumb_6319_1920_1080_0_0_crop.jpg",
+  ],
+  [
+    "https://df93k41893ij1.cloudfront.net/uploads/public/605/8ba/ad7/thumb_6336_1920_1080_0_0_crop.jpg",
+    "https://df93k41893ij1.cloudfront.net/uploads/public/605/8ba/665/thumb_6331_1920_1080_0_0_crop.jpg",
+    "https://df93k41893ij1.cloudfront.net/uploads/public/605/8ba/190/thumb_6330_1920_1080_0_0_crop.jpg",
+    "https://df93k41893ij1.cloudfront.net/uploads/public/605/8b9/a19/thumb_6319_1920_1080_0_0_crop.jpg",
+    "https://df93k41893ij1.cloudfront.net/uploads/public/605/8b9/a0c/thumb_6318_1920_1080_0_0_crop.jpg",
+    "https://df93k41893ij1.cloudfront.net/uploads/public/605/8ba/a56/thumb_6335_1920_1080_0_0_crop.jpg",
+  ],
+  [
+    "https://df93k41893ij1.cloudfront.net/uploads/public/605/8ba/190/thumb_6330_1920_1080_0_0_crop.jpg",
+    "https://df93k41893ij1.cloudfront.net/uploads/public/605/8b9/a19/thumb_6319_1920_1080_0_0_crop.jpg",
+    "https://df93k41893ij1.cloudfront.net/uploads/public/605/8b9/adb/thumb_6327_1920_1080_0_0_crop.jpg",
+    "https://df93k41893ij1.cloudfront.net/uploads/public/605/8b9/ad9/thumb_6326_1920_1080_0_0_crop.jpg",
+    "https://df93k41893ij1.cloudfront.net/uploads/public/605/8b9/a0c/thumb_6318_1920_1080_0_0_crop.jpg",
+    "https://df93k41893ij1.cloudfront.net/uploads/public/605/8ba/a56/thumb_6335_1920_1080_0_0_crop.jpg",
+  ],
+  [
+    "https://df93k41893ij1.cloudfront.net/uploads/public/605/8b9/adb/thumb_6327_1920_1080_0_0_crop.jpg",
+    "https://df93k41893ij1.cloudfront.net/uploads/public/605/8b9/ad9/thumb_6326_1920_1080_0_0_crop.jpg",
+    "https://df93k41893ij1.cloudfront.net/uploads/public/605/8b9/a0c/thumb_6318_1920_1080_0_0_crop.jpg",
+    "https://df93k41893ij1.cloudfront.net/uploads/public/605/8ba/a56/thumb_6335_1920_1080_0_0_crop.jpg",
+    "https://df93k41893ij1.cloudfront.net/uploads/public/605/8b9/a0c/thumb_6318_1920_1080_0_0_crop.jpg",
+    "https://df93k41893ij1.cloudfront.net/uploads/public/605/8ba/a56/thumb_6335_1920_1080_0_0_crop.jpg",
+  ],
+  [
+    "https://df93k41893ij1.cloudfront.net/uploads/public/605/8b9/a0c/thumb_6318_1920_1080_0_0_crop.jpg",
+    "https://df93k41893ij1.cloudfront.net/uploads/public/605/8ba/a56/thumb_6335_1920_1080_0_0_crop.jpg",
+    "https://df93k41893ij1.cloudfront.net/uploads/public/605/8b9/a0c/thumb_6318_1920_1080_0_0_crop.jpg",
+    "https://df93k41893ij1.cloudfront.net/uploads/public/605/8ba/a56/thumb_6335_1920_1080_0_0_crop.jpg",
+    "https://df93k41893ij1.cloudfront.net/uploads/public/605/8b9/d80/thumb_6329_1920_1080_0_0_crop.jpg",
+    "https://df93k41893ij1.cloudfront.net/uploads/public/605/8b9/ac7/thumb_6325_1920_1080_0_0_crop.jpg",
+  ],
+  [
+    "https://df93k41893ij1.cloudfront.net/uploads/public/605/8b9/a0c/thumb_6318_1920_1080_0_0_crop.jpg",
+    "https://df93k41893ij1.cloudfront.net/uploads/public/605/8ba/a56/thumb_6335_1920_1080_0_0_crop.jpg",
+    "https://df93k41893ij1.cloudfront.net/uploads/public/605/8b9/d80/thumb_6329_1920_1080_0_0_crop.jpg",
+    "https://df93k41893ij1.cloudfront.net/uploads/public/605/8b9/ac7/thumb_6325_1920_1080_0_0_crop.jpg",
+    "https://df93k41893ij1.cloudfront.net/uploads/public/605/8ba/ad7/thumb_6336_1920_1080_0_0_crop.jpg",
+    "https://df93k41893ij1.cloudfront.net/uploads/public/605/8ba/665/thumb_6331_1920_1080_0_0_crop.jpg",
+  ],
+];
+
+grids.forEach((grid, index) => {
+  let img = grid.querySelector("img");
+  let images = imageSets[index];
+  let i = 0;
+  grid.addEventListener("mouseenter", () => {
+    const interval = setInterval(() => {
+      i = (i + 1) % images.length;
+      img.src = images[i];
+    }, 500);
+    grid.addEventListener("mouseleave", () => clearInterval(interval), {
+      once: true,
+    });
+  });
 });

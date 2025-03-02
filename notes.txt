@@ -1,53 +1,6 @@
-<!-- clients brand logo grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 p-4">
-        <!-- Bottles Category -->
-        <div class="relative group h-[500px] overflow-hidden" data-index="0">
-            <img src="https://df93k41893ij1.cloudfront.net/uploads/public/605/8b9/d80/thumb_6329_1920_1080_0_0_crop.jpg" alt="Bottles" class="w-full h-full object-cover rounded-lg shadow-lg absolute">
-            <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity">
-                <span class="text-4xl font-bold dynamic-color">Bottles</span>
-            </div>
-        </div>
-    
-        <!-- Plants Category -->
-        <div class="relative group h-[500px] overflow-hidden" data-index="1">
-            <img src="https://df93k41893ij1.cloudfront.net/uploads/public/605/8ba/ad7/thumb_6336_1920_1080_0_0_crop.jpg" alt="Plants" class="w-full h-full object-cover rounded-lg shadow-lg absolute">
-            <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity">
-                <span class="text-4xl font-bold dynamic-color">Plants</span>
-            </div>
-        </div>
-    
-        <!-- Gardens Category -->
-        <div class="relative group h-[500px] overflow-hidden" data-index="2">
-            <img src="https://df93k41893ij1.cloudfront.net/uploads/public/605/8ba/190/thumb_6330_1920_1080_0_0_crop.jpg" alt="Gardens" class="w-full h-full object-cover rounded-lg shadow-lg absolute">
-            <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity">
-                <span class="text-4xl font-bold dynamic-color">Gardens</span>
-            </div>
-        </div>
-    
-        <!-- Flowers Category -->
-        <div class="relative group h-[500px] overflow-hidden" data-index="3">
-            <img src="https://df93k41893ij1.cloudfront.net/uploads/public/605/8b9/adb/thumb_6327_1920_1080_0_0_crop.jpg" alt="Flowers" class="w-full h-full object-cover rounded-lg shadow-lg absolute">
-            <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity">
-                <span class="text-4xl font-bold dynamic-color">Flowers</span>
-            </div>
-        </div>
-    
-        <!-- Nature Category -->
-        <div class="relative group h-[500px] overflow-hidden" data-index="4">
-            <img src="https://df93k41893ij1.cloudfront.net/uploads/public/605/8b9/a0c/thumb_6318_1920_1080_0_0_crop.jpg" alt="Nature" class="w-full h-full object-cover rounded-lg shadow-lg absolute">
-            <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity">
-                <span class="text-4xl font-bold dynamic-color">Nature</span>
-            </div>
-        </div>
-    
-        <!-- Decor Category -->
-        <div class="relative group h-[500px] overflow-hidden" data-index="5">
-            <img src="https://df93k41893ij1.cloudfront.net/uploads/public/605/8b9/a0c/thumb_6318_1920_1080_0_0_crop.jpg" alt="Decor" class="w-full h-full object-cover rounded-lg shadow-lg absolute">
-            <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity">
-                <span class="text-4xl font-bold dynamic-color">Decor</span>
-            </div>
-        </div>
-      </div>
+
+
+
 
 
 
