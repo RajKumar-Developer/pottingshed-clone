@@ -3,9 +3,797 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+    <title>Design, Advertising & Digital agency | Guernsey & Jersey | Potting Shed</title>
+    <link id="dynamic-favicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml,..." />
+    <link rel="stylesheet" href="/src/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        .key-message-banner {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background: url(https://pottingshed.com/themes/potting-shed/assets/images/misc/about-background.jpg) no-repeat center;
+            background-size: cover;
+            z-index: 2;
+        }
+        .custom-green {
+            color: #7FFF50;
+        }
+        .custom-green-bg {
+            background-color: #7FFF50;
+        }
+        .custom-input {
+            border-bottom: 2px solid #7FFF50;
+            outline: none;
+            background: transparent;
+        }
+        .custom-input::placeholder {
+            color: rgba(0, 0, 0, 0.3);
+        }
+        /* Text Styling */
+        .banner-key-message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 2.5rem;
+            font-family: 'Poppins', sans-serif; /* Use your desired font */
+            text-align: center;
+            font-weight: bold;
+            display: flex;
+            gap: 5px; /* Space between letters */
+        }
     
+        /* Letter Animation */
+        .letter {
+            fill: rgb(70, 69, 69);
+            display: inline-block;
+            opacity: 0;
+            animation: fadeBounce 0.5s ease forwards;
+        }
+    
+        /* Fade In with Bounce Effect */
+        @keyframes fadeBounce {
+            0% { opacity: 0; transform: translateY(20px) scale(0.8); }
+            50% { opacity: 1; transform: translateY(-10px) scale(1.1); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        
+        /* Fade Out Effect */
+        .fade-out {
+            animation: fadeOut 0.5s ease forwards;
+        }
+        
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+  
+        #nav-icon2 {
+        width: 60px;
+        height: 45px;
+        position: relative;
+        margin: 50px auto;
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+        -webkit-transition: .5s ease-in-out;
+        -moz-transition: .5s ease-in-out;
+        -o-transition: .5s ease-in-out;
+        transition: .5s ease-in-out;
+        cursor: pointer;
+        }
+        
+        #nav-icon2 span {
+        display: block;
+        position: absolute;
+        height: 9px;
+        width: 50%;
+        opacity: 1;
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+        -webkit-transition: .25s ease-in-out;
+        -moz-transition: .25s ease-in-out;
+        -o-transition: .25s ease-in-out;
+        transition: .25s ease-in-out;
+        }
+    
+        #nav-icon2 span:nth-child(even) {
+        left: 50%;
+        border-radius: 0 9px 9px 0;
+        }
+        
+        #nav-icon2 span:nth-child(odd) {
+        left:0px;
+        border-radius: 9px 0 0 9px;
+        }
+        
+        #nav-icon2 span:nth-child(1), #nav-icon2 span:nth-child(2) {
+        top: 0px;
+        }
+        
+        #nav-icon2 span:nth-child(3), #nav-icon2 span:nth-child(4) {
+        top: 18px;
+        }
+        
+        #nav-icon2 span:nth-child(5), #nav-icon2 span:nth-child(6) {
+        top: 36px;
+        }
+        
+        #nav-icon2.open span:nth-child(1),#nav-icon2.open span:nth-child(6) {
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        transform: rotate(45deg);
+        }
+        
+        #nav-icon2.open span:nth-child(2),#nav-icon2.open span:nth-child(5) {
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        }
+        
+        #nav-icon2.open span:nth-child(1) {
+        left: 5px;
+        top: 7px;
+        }
+        
+        #nav-icon2.open span:nth-child(2) {
+        left: calc(50% - 5px);
+        top: 7px;
+        }
+        
+        #nav-icon2.open span:nth-child(3) {
+        left: -50%;
+        opacity: 0;
+        }
+        
+        #nav-icon2.open span:nth-child(4) {
+        left: 100%;
+        opacity: 0;
+        }
+        
+        #nav-icon2.open span:nth-child(5) {
+        left: 5px;
+        top: 29px;
+        }
+        
+        #nav-icon2.open span:nth-child(6) {
+        left: calc(50% - 5px);
+        top: 29px;
+        }
+        .hamburger{
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+        margin-left: 70px;
+        }
+    
+      .modal-menu-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          opacity: 0;
+          visibility: hidden;
+          transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+          z-index: 100;
+      }
+      .modal-menu-overlay nav {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start; 
+          justify-content: center;
+          height: 100%;
+          width: 100%;
+          padding-left: 10%;
+          padding-bottom: 13%;
+      }
+      .modal-menu-overlay .flex.justify-around.w-full {
+          justify-content: flex-end;
+          text-align: right;
+          padding-right: 10%;
+          display: flex;
+      }
+      .modal-menu-overlay ul li, .modal-menu-overlay .address-item {
+          opacity: 0;
+          transform: translateX(-50px);
+          transition: all 0.6s ease-in-out;
+      }
+      .modal-menu-overlay ul {
+          
+          position: relative;
+          z-index: 2;
+          
+          text-align: left; 
+      }
+      .address {
+          opacity: 1;
+          transform: translateY(20px);
+          transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+      }
+      .address.show {
+          opacity: 1;
+          transform: translateY(0);
+      }
+      .address-item {
+          opacity: 0;
+          transform: translateY(50px);
+          transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+      }
+      
+      .modal-menu-overlay.active .address-item {
+          opacity: 1;
+          transform: translateY(0);
+      }
+      .modal-menu-overlay.active {
+          opacity: 1;
+          visibility: visible;  display: block;
+          background-image: url('/public/craft-background.jpg');
+          background-size: cover;
+          background-position: center;
+          opacity: 1;
+      }
+      @media (max-width: 768px) { /* Target tablets and smaller screens */
+          .main-logo svg {
+              width: 250px; /* Reduce size */
+              height: auto;
+          }
+          .address{
+              display: none;
+          }
+      }
+      @media (max-width: 1024px) { /* Target tablets and smaller screens */
+          .address{
+              display: none;
+          }
+      }
+      
+      @media (max-width: 480px) { /* Target mobile devices */
+          .main-logo svg {
+              width: 150px; /* Further reduce size */
+          }
+          .address{
+              display: none;
+          }
+      }
+      </style>
+</head>
+<body class="bg-white text-black">
+    <div id="custom-cursor"></div>
+     <div class="preloader done dynamic-bg">
+      <div class="grid">
+        <svg xmlns="http://www.w3.org/2000/svg" width="262" height="100" viewBox="0 0 261.72 55.15" class="ps-logo">
+          <path class="letter p" d="M14.12,8.07A13.42,13.42,0,0,0,1.57,15.49h0A14.58,14.58,0,0,0,0,22L0,43.63H7.77v-9a14.77,14.77,0,0,0,6.34,1.33c9.54,0,14.13-7.51,14.13-13.93S23.66,8.07,14.12,8.07Zm0,20.54a6.62,6.62,0,1,1,6.27-6.95c0,.12,0,.23,0,.34a6.38,6.38,0,0,1-6.15,6.61h-.13Z" data-svg-origin="0 8.05910873413086" transform="matrix(1,0,0,1,0,15.0006)" style="transform-origin: 0px 0px;"></path>
+          <path class="letter o" d="M44.05,8.07c-9.54,0-14.12,7.51-14.12,13.93s4.58,13.93,14.12,13.93S58.17,28.42,58.17,22,53.58,8.07,44.05,8.07Zm0,20.54a6.62,6.62,0,1,1,6.27-6.95c0,.12,0,.23,0,.34a6.38,6.38,0,0,1-6.16,6.61h-.12Z" data-svg-origin="29.93000030517578 8.069999694824219" transform="matrix(1,0,0,1,0,12.101)" style="transform-origin: 0px 0px;"></path>
+          <path class="letter first-t" d="M64.31,0a1.39,1.39,0,0,0-1.4,1.4h0V9.56L57.15,7.45l-1,1.26,6.77,6.14V35h7.82V0Z" data-svg-origin="56.150001525878906 -0.000036241744965082034" transform="matrix(1,0,0,1,0,9.5126)" style="transform-origin: 0px 0px;"></path>
+          <path class="dot " d="M55.2.18H50.89s.71,2.7.94,3.53S53.09,6,55.59,6H59.9S59.2,3.29,59,2.46,57.71.17,55.2.17Z" data-svg-origin="50.88999938964844 0.17000001668930054" transform="matrix(1,0,0,1,0,7.2353)" style="transform-origin: 0px 0px;"></path>
+          <path class="letter second-t" d="M80,0H73.53l0,35h7.83V14.69h3.78V8.74H81.39l0-7.34A1.42,1.42,0,0,0,80,0Z" data-svg-origin="73.52999877929688 0" transform="matrix(1,0,0,1,0,5.269)" style="transform-origin: 0px 0px;"></path>
+          <path class="letter i" d="M87.48,35h7.83V10.15a1.41,1.41,0,0,0-1.4-1.41H87.48V35Z" data-svg-origin="87.4800033569336 8.739999771118164" transform="matrix(1,0,0,1,0,3.6139)" style="transform-origin: 0px 0px;"></path>
+          <path class="dot"  d="M92.38.18c-2.51,0-3.52,1.45-3.76,2.28S87.68,6,87.68,6H92c2.5,0,3.52-1.46,3.76-2.29s.94-3.53.94-3.53Z" data-svg-origin="87.68000030517578 0.18000000715255737" transform="matrix(1,0,0,1,0,2.2699)" style="transform-origin: 0px 0px;"></path>
+          <path class="letter n" d="M98.62,8.74V35h7.84V20.68c0-1.6,0-5.48,4.49-5.48,4.1,0,4.1,3.59,4.1,5.44v14.3h7.84V18.56c0-5.15-1.6-7.22-3-8.45a11.25,11.25,0,0,0-6.7-2.27c-4.68,0-6.33,2.41-7.13,3.68h-.1V10.15a1.41,1.41,0,0,0-1.41-1.41Z" data-svg-origin="98.62000274658203 7.839999675750732" transform="matrix(1,0,0,1,0,1.237)" style="transform-origin: 0px 0px;"></path>
+          <path class="letter g" d="M152.79,41a8.66,8.66,0,0,0-6.53-2.93h-13a1.07,1.07,0,0,1,0-2.11h6.55c9.29-.19,13.76-7.58,13.76-13.92S148.94,8.1,139.4,8.1,125.28,15.61,125.28,22a14.46,14.46,0,0,0,3,8.83,6.88,6.88,0,0,0-3.09,6.06c0,3.92,3.75,5.87,5.15,6.44a9,9,0,0,0,1.47,9.49c1.48,1.74,3.83,2.32,6.72,2.3l9.29-.16a7.25,7.25,0,0,0,5-2.18,9.07,9.07,0,0,0,0-11.82Zm-13.4-25.57a6.62,6.62,0,1,1-6.27,7c0-.11,0-.23,0-.34a6.39,6.39,0,0,1,6.17-6.61Zm6.71,33.19h-7.58a1.72,1.72,0,0,1-1.42-2,1.74,1.74,0,0,1,1.35-1.41h7.7a1.71,1.71,0,0,1-.05,3.37Z" data-svg-origin="125.182861328125 8.100000381469727" transform="matrix(1,0,0,1,0,0.5153)" style="transform-origin: 0px 0px;"></path>
+          <path class="dot " d="M150.42,2.48c-2.5,0-3.52,1.46-3.75,2.29s-.94,3.54-.94,3.54H150c2.5,0,3.52-1.46,3.76-2.29s.94-3.54.94-3.54Z" data-svg-origin="145.72999572753906 2.479999542236328" transform="matrix(1,0,0,1,0,0.1046)" style="transform-origin: 0px 0px;"></path>
+          <path class="letter s " d="M167.92,16.11c0-.57-.14-2-2.45-2-1.66,0-2.22,1-2.22,1.75,0,1.42,1.94,2.22,4,2.84,4.44,1.22,9.16,2.55,9.16,8.21s-4.86,8.92-10.67,8.92c-4,0-10-1.79-10.67-8.68h7.79a2.79,2.79,0,0,0,3,2.41c1.33,0,2.74-.76,2.74-2,0-2-1.93-2.27-6.94-4.2-3.4-1.09-6.23-3.3-6.23-6.85,0-5.19,4.72-8.64,10.15-8.64,3.45,0,9.4,1.37,10.06,8.26Z" data-svg-origin="155.07000732421875 7.869999885559082" transform="matrix(1,0,0,1,0,0)" style="transform-origin: 0px 0px;"></path>
+          <path class="letter h " d="M178.23,0h6.44a1.4,1.4,0,0,1,1.4,1.4v9.74h.1c1.32-2.36,4-3.3,6.75-3.3,2.5,0,5.47.9,7.13,2.88,2.22,2.6,2.45,4.91,2.45,9.58V35h-7.83V20.68c0-1.27,0-5.47-4.2-5.47-4.4,0-4.4,3.92-4.4,5.19V35h-7.84V0Z" data-svg-origin="178.22999572753906 0" transform="matrix(1,0,0,1,0,0)" style="transform-origin: 0px 0px;"></path>
+          <path class="letter e " d="M231.1,23.74c0,.66-.08,1.4-.17,2a.14.14,0,0,1-.14.12H216.71V19.22h6.41a5.11,5.11,0,0,0-5.32-4.56c-5.09,0-6.22,4.4-6.22,7.26,0,5.34,3.59,7.44,6.65,7.44l4.14,0V36h-4.14A13.87,13.87,0,0,1,204.38,22.1c0-7.3,4.6-14,13.37-14,9.87,0,14,7.71,13.35,15.68Z" data-svg-origin="204.37997436523438 8.100000381469727" transform="matrix(1,0,0,1,0,0)" style="transform-origin: 0px 0px;"></path>
+          <path class="letter d " d="M260.33.12H254v9a14.77,14.77,0,0,0-6.34-1.33c-9.54,0-14.12,7.51-14.12,13.93s4.58,13.93,14.12,13.93h0a13.42,13.42,0,0,0,12.55-7.42,14.46,14.46,0,0,0,1.56-6.48c0-2,0-15.77,0-20.26A1.4,1.4,0,0,0,260.33.12Zm-12,28.24a6.62,6.62,0,0,1-6.95-6.27c0-.11,0-.23,0-.34a6.39,6.39,0,0,1,6.17-6.61h.11a6.62,6.62,0,0,1,.68,13.22Z" data-svg-origin="233.54000854492188 0.11942010372877121" transform="matrix(1,0,0,1,0,0)" style="transform-origin: 0px 0px;"></path>
+      </svg>
+      </div>
+    </div>
+
+    <header class="header z-50">
+        <div class="hamburger" id="menuButton">
+            <div id="nav-icon2" >
+                <span class="dynamic-bg"></span>
+                <span class="dynamic-bg"></span>
+                <span class="dynamic-bg"></span>
+                <span class="dynamic-bg"></span>
+                <span class="dynamic-bg"></span>
+                <span class="dynamic-bg"></span>
+              </div>
+              <button class="hidden md:block text-white text-4xl font-extrabold tracking-wide">MENU</button>
+        </div>
+        <div class="logo-container  hidden md:block main-logo">
+            <a href="/main">
+          <svg xmlns="http://www.w3.org/2000/svg" width="262" height="55" viewBox="0 0 261.72 55.15" class="ps-logo main-logo">
+            <path class="letter p" d="M14.12,8.07A13.42,13.42,0,0,0,1.57,15.49h0A14.58,14.58,0,0,0,0,22L0,43.63H7.77v-9a14.77,14.77,0,0,0,6.34,1.33c9.54,0,14.13-7.51,14.13-13.93S23.66,8.07,14.12,8.07Zm0,20.54a6.62,6.62,0,1,1,6.27-6.95c0,.12,0,.23,0,.34a6.38,6.38,0,0,1-6.15,6.61h-.13Z"></path>
+            <path class="letter o" d="M44.05,8.07c-9.54,0-14.12,7.51-14.12,13.93s4.58,13.93,14.12,13.93S58.17,28.42,58.17,22,53.58,8.07,44.05,8.07Zm0,20.54a6.62,6.62,0,1,1,6.27-6.95c0,.12,0,.23,0,.34a6.38,6.38,0,0,1-6.16,6.61h-.12Z"></path>
+            <path class="letter first-t" d="M64.31,0a1.39,1.39,0,0,0-1.4,1.4h0V9.56L57.15,7.45l-1,1.26,6.77,6.14V35h7.82V0Z"></path>
+            <path class="dot t-dot secondary-colour" d="M55.2.18H50.89s.71,2.7.94,3.53S53.09,6,55.59,6H59.9S59.2,3.29,59,2.46,57.71.17,55.2.17Z"></path>
+            <path class="letter second-t" d="M80,0H73.53l0,35h7.83V14.69h3.78V8.74H81.39l0-7.34A1.42,1.42,0,0,0,80,0Z"></path>
+            <path class="letter i" d="M87.48,35h7.83V10.15a1.41,1.41,0,0,0-1.4-1.41H87.48V35Z"></path>
+            <path class="dot i-dot secondary-colour" d="M92.38.18c-2.51,0-3.52,1.45-3.76,2.28S87.68,6,87.68,6H92c2.5,0,3.52-1.46,3.76-2.29s.94-3.53.94-3.53Z"></path>
+            <path class="letter n" d="M98.62,8.74V35h7.84V20.68c0-1.6,0-5.48,4.49-5.48,4.1,0,4.1,3.59,4.1,5.44v14.3h7.84V18.56c0-5.15-1.6-7.22-3-8.45a11.25,11.25,0,0,0-6.7-2.27c-4.68,0-6.33,2.41-7.13,3.68h-.1V10.15a1.41,1.41,0,0,0-1.41-1.41Z"></path>
+            <path class="letter g" d="M152.79,41a8.66,8.66,0,0,0-6.53-2.93h-13a1.07,1.07,0,0,1,0-2.11h6.55c9.29-.19,13.76-7.58,13.76-13.92S148.94,8.1,139.4,8.1,125.28,15.61,125.28,22a14.46,14.46,0,0,0,3,8.83,6.88,6.88,0,0,0-3.09,6.06c0,3.92,3.75,5.87,5.15,6.44a9,9,0,0,0,1.47,9.49c1.48,1.74,3.83,2.32,6.72,2.3l9.29-.16a7.25,7.25,0,0,0,5-2.18,9.07,9.07,0,0,0,0-11.82Zm-13.4-25.57a6.62,6.62,0,1,1-6.27,7c0-.11,0-.23,0-.34a6.39,6.39,0,0,1,6.17-6.61Zm6.71,33.19h-7.58a1.72,1.72,0,0,1-1.42-2,1.74,1.74,0,0,1,1.35-1.41h7.7a1.71,1.71,0,0,1-.05,3.37Z"></path>
+            <path class="dot g-dot secondary-colour" d="M150.42,2.48c-2.5,0-3.52,1.46-3.75,2.29s-.94,3.54-.94,3.54H150c2.5,0,3.52-1.46,3.76-2.29s.94-3.54.94-3.54Z"></path>
+            <path class="letter s secondary-colour" d="M167.92,16.11c0-.57-.14-2-2.45-2-1.66,0-2.22,1-2.22,1.75,0,1.42,1.94,2.22,4,2.84,4.44,1.22,9.16,2.55,9.16,8.21s-4.86,8.92-10.67,8.92c-4,0-10-1.79-10.67-8.68h7.79a2.79,2.79,0,0,0,3,2.41c1.33,0,2.74-.76,2.74-2,0-2-1.93-2.27-6.94-4.2-3.4-1.09-6.23-3.3-6.23-6.85,0-5.19,4.72-8.64,10.15-8.64,3.45,0,9.4,1.37,10.06,8.26Z"></path>
+            <path class="letter h secondary-colour" d="M178.23,0h6.44a1.4,1.4,0,0,1,1.4,1.4v9.74h.1c1.32-2.36,4-3.3,6.75-3.3,2.5,0,5.47.9,7.13,2.88,2.22,2.6,2.45,4.91,2.45,9.58V35h-7.83V20.68c0-1.27,0-5.47-4.2-5.47-4.4,0-4.4,3.92-4.4,5.19V35h-7.84V0Z"></path>
+            <path class="letter e secondary-colour" d="M231.1,23.74c0,.66-.08,1.4-.17,2a.14.14,0,0,1-.14.12H216.71V19.22h6.41a5.11,5.11,0,0,0-5.32-4.56c-5.09,0-6.22,4.4-6.22,7.26,0,5.34,3.59,7.44,6.65,7.44l4.14,0V36h-4.14A13.87,13.87,0,0,1,204.38,22.1c0-7.3,4.6-14,13.37-14,9.87,0,14,7.71,13.35,15.68Z"></path>
+            <path class="letter d secondary-colour" d="M260.33.12H254v9a14.77,14.77,0,0,0-6.34-1.33c-9.54,0-14.12,7.51-14.12,13.93s4.58,13.93,14.12,13.93h0a13.42,13.42,0,0,0,12.55-7.42,14.46,14.46,0,0,0,1.56-6.48c0-2,0-15.77,0-20.26A1.4,1.4,0,0,0,260.33.12Zm-12,28.24a6.62,6.62,0,0,1-6.95-6.27c0-.11,0-.23,0-.34a6.39,6.39,0,0,1,6.17-6.61h.11a6.62,6.62,0,0,1,.68,13.22Z"></path>
+          </svg>
+        </a>
+        </div>
+        
+        
+    </header>
+    
+    <!-- Menu Overlay -->
+    <div class="modal-menu-overlay text-white bg-[url('/cork-background.png')] fixed top-0 left-0 w-full h-full flex flex-col  items-center justify-center" id="menuOverlay">
+        <button id="closeButton" class="absolute top-10 left-20 text-orange-500 dynamic-color text-8xl font-extrabold ">&times; </button>
+    <!-- Logo -->
+        <div class="flex justify-end items-end mt-16">
+            <div class="logo-container md:block main-logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="262" height="55" viewBox="0 0 261.72 55.15" class="main-logo ps-logo">
+                <path class="letter p" d="M14.12,8.07A13.42,13.42,0,0,0,1.57,15.49h0A14.58,14.58,0,0,0,0,22L0,43.63H7.77v-9a14.77,14.77,0,0,0,6.34,1.33c9.54,0,14.13-7.51,14.13-13.93S23.66,8.07,14.12,8.07Zm0,20.54a6.62,6.62,0,1,1,6.27-6.95c0,.12,0,.23,0,.34a6.38,6.38,0,0,1-6.15,6.61h-.13Z"></path>
+                <path class="letter o" d="M44.05,8.07c-9.54,0-14.12,7.51-14.12,13.93s4.58,13.93,14.12,13.93S58.17,28.42,58.17,22,53.58,8.07,44.05,8.07Zm0,20.54a6.62,6.62,0,1,1,6.27-6.95c0,.12,0,.23,0,.34a6.38,6.38,0,0,1-6.16,6.61h-.12Z"></path>
+                <path class="letter first-t" d="M64.31,0a1.39,1.39,0,0,0-1.4,1.4h0V9.56L57.15,7.45l-1,1.26,6.77,6.14V35h7.82V0Z"></path>
+                <path class="dot t-dot secondary-colour" d="M55.2.18H50.89s.71,2.7.94,3.53S53.09,6,55.59,6H59.9S59.2,3.29,59,2.46,57.71.17,55.2.17Z"></path>
+                <path class="letter second-t" d="M80,0H73.53l0,35h7.83V14.69h3.78V8.74H81.39l0-7.34A1.42,1.42,0,0,0,80,0Z"></path>
+                <path class="letter i" d="M87.48,35h7.83V10.15a1.41,1.41,0,0,0-1.4-1.41H87.48V35Z"></path>
+                <path class="dot i-dot secondary-colour" d="M92.38.18c-2.51,0-3.52,1.45-3.76,2.28S87.68,6,87.68,6H92c2.5,0,3.52-1.46,3.76-2.29s.94-3.53.94-3.53Z"></path>
+                <path class="letter n" d="M98.62,8.74V35h7.84V20.68c0-1.6,0-5.48,4.49-5.48,4.1,0,4.1,3.59,4.1,5.44v14.3h7.84V18.56c0-5.15-1.6-7.22-3-8.45a11.25,11.25,0,0,0-6.7-2.27c-4.68,0-6.33,2.41-7.13,3.68h-.1V10.15a1.41,1.41,0,0,0-1.41-1.41Z"></path>
+                <path class="letter g" d="M152.79,41a8.66,8.66,0,0,0-6.53-2.93h-13a1.07,1.07,0,0,1,0-2.11h6.55c9.29-.19,13.76-7.58,13.76-13.92S148.94,8.1,139.4,8.1,125.28,15.61,125.28,22a14.46,14.46,0,0,0,3,8.83,6.88,6.88,0,0,0-3.09,6.06c0,3.92,3.75,5.87,5.15,6.44a9,9,0,0,0,1.47,9.49c1.48,1.74,3.83,2.32,6.72,2.3l9.29-.16a7.25,7.25,0,0,0,5-2.18,9.07,9.07,0,0,0,0-11.82Zm-13.4-25.57a6.62,6.62,0,1,1-6.27,7c0-.11,0-.23,0-.34a6.39,6.39,0,0,1,6.17-6.61Zm6.71,33.19h-7.58a1.72,1.72,0,0,1-1.42-2,1.74,1.74,0,0,1,1.35-1.41h7.7a1.71,1.71,0,0,1-.05,3.37Z"></path>
+                <path class="dot g-dot secondary-colour" d="M150.42,2.48c-2.5,0-3.52,1.46-3.75,2.29s-.94,3.54-.94,3.54H150c2.5,0,3.52-1.46,3.76-2.29s.94-3.54.94-3.54Z"></path>
+                <path class="letter s secondary-colour" d="M167.92,16.11c0-.57-.14-2-2.45-2-1.66,0-2.22,1-2.22,1.75,0,1.42,1.94,2.22,4,2.84,4.44,1.22,9.16,2.55,9.16,8.21s-4.86,8.92-10.67,8.92c-4,0-10-1.79-10.67-8.68h7.79a2.79,2.79,0,0,0,3,2.41c1.33,0,2.74-.76,2.74-2,0-2-1.93-2.27-6.94-4.2-3.4-1.09-6.23-3.3-6.23-6.85,0-5.19,4.72-8.64,10.15-8.64,3.45,0,9.4,1.37,10.06,8.26Z"></path>
+                <path class="letter h secondary-colour" d="M178.23,0h6.44a1.4,1.4,0,0,1,1.4,1.4v9.74h.1c1.32-2.36,4-3.3,6.75-3.3,2.5,0,5.47.9,7.13,2.88,2.22,2.6,2.45,4.91,2.45,9.58V35h-7.83V20.68c0-1.27,0-5.47-4.2-5.47-4.4,0-4.4,3.92-4.4,5.19V35h-7.84V0Z"></path>
+                <path class="letter e secondary-colour" d="M231.1,23.74c0,.66-.08,1.4-.17,2a.14.14,0,0,1-.14.12H216.71V19.22h6.41a5.11,5.11,0,0,0-5.32-4.56c-5.09,0-6.22,4.4-6.22,7.26,0,5.34,3.59,7.44,6.65,7.44l4.14,0V36h-4.14A13.87,13.87,0,0,1,204.38,22.1c0-7.3,4.6-14,13.37-14,9.87,0,14,7.71,13.35,15.68Z"></path>
+                <path class="letter d secondary-colour" d="M260.33.12H254v9a14.77,14.77,0,0,0-6.34-1.33c-9.54,0-14.12,7.51-14.12,13.93s4.58,13.93,14.12,13.93h0a13.42,13.42,0,0,0,12.55-7.42,14.46,14.46,0,0,0,1.56-6.48c0-2,0-15.77,0-20.26A1.4,1.4,0,0,0,260.33.12Zm-12,28.24a6.62,6.62,0,0,1-6.95-6.27c0-.11,0-.23,0-.34a6.39,6.39,0,0,1,6.17-6.61h.11a6.62,6.62,0,0,1,.68,13.22Z"></path>
+                </svg>
+            </div>
+        </div>
+
+        <nav class="text-center">
+            <ul class="space-y-6 text-white text-7xl font-bold">
+                <li><a href="work.html"><span class="hover: dynamic-hover">Work</span></a></li>
+                <li><a href="about.html"><span class="hover: dynamic-hover">About</span></a></li>
+                <li><a href="team.html"><span class="hover: dynamic-hover">Team</span></a></li>
+                <li><a href="journal.html"><span class="hover: dynamic-hover">Journal</span></a></li>
+                <li><a href="contact.html"><span class="hover: dynamic-hover">Contact</span></a></li>
+            </ul>
+        </nav>
+        <div class="md:flex md:w-2/3 justify-end space-x-12 hidden sm:flex" style="position: absolute !important;top: 440px !important;left: 100px !important;">
+        <div class="address">
+            <h2 class="font-bold text-3xl dynamic-color">Guernsey</h2>
+            <p class="leading-relaxed">Trinity Square<br>St Peter Port<br>Guernsey<br>GY1 1LX</p>
+            <p><a href="tel:01481727699" class="hover:underline">01481 727699</a></p>
+            <p><a href="mailto:gsy@pottingshed.com" class="hover:underline">gsy@pottingshed.com</a></p>
+            <p><a href="https://pottingshed.com/" class="hover:underline">View map</a></p>
+        </div>
+        <div class="address">
+            <h2 class="font-bold text-3xl dynamic-color">Jersey</h2>
+            <p class="leading-relaxed">First Floor, 3 Mulcaster St<br>St Helier<br>Jersey<br>JE2 3NJ</p>
+            <p><a href="tel:01534781658" class="hover:underline">01534 781658</a></p>
+            <p><a href="mailto:jsy@pottingshed.com" class="hover:underline">jsy@pottingshed.com</a></p>
+            <p><a href="https://pottingshed.com/" class="hover:underline">View map</a></p>
+        </div>
+        </div>
+        
+    </div>
+
+    <!-- Main Content -->
+    <div class="h-[90vh] flex flex-col key-message-banner justify-center items-center text-center px-6 relative z-10">
+        <h1 class="text-white text-5xl md:text-7xl font-bold leading-tight fade-in" style="font-family: 'Playfair Display', serif;">
+            We believe that <span class="text-green-400">intelligent</span> <br>
+            <span class="text-green-400">creative thinking</span> helps <br>
+            organisations and individuals to grow.
+        </h1>
+        <p class="text-gray-300 mt-4 fade-in">(WE ALSO LIKE MAKING THINGS LOOK NICE)</p>
+    </div>
+
+    <!-- About Section -->
+    <section class="container mx-auto px-6 pt-24 pb-12">
+        <h2 class="text-4xl font-bold text-center text-green-500 mb-6" data-aos="fade-up">About Us</h2>
+        <p class="text-lg text-center max-w-2xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="100">
+            We are a creative agency that specializes in digital experiences, brand strategy, and interactive design.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <img src="/contact-image.jpg" alt="Office" class="rounded-lg shadow-lg" data-aos="fade-right">
+            <div data-aos="fade-left">
+                <h3 class="text-2xl font-bold text-green-500 mb-4">Our Mission</h3>
+                <p class="text-gray-700 mb-4">
+                    At Potting Shed, we believe in creating seamless digital experiences that help brands grow and thrive.
+                </p>
+                <p class="text-gray-700">
+                    Our team is passionate about design, technology, and crafting meaningful connections between businesses and their audiences.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="bg-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold text-green-500 mb-6" data-aos="zoom-in">Meet Our Team</h2>
+            <p class="text-lg text-gray-700 max-w-xl mx-auto mb-12" data-aos="fade-up">
+                Our talented team of designers, developers, and strategists are dedicated to bringing your vision to life.
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-6 bg-gray-100 rounded-lg shadow-lg" data-aos="flip-left">
+                    <h3 class="text-xl font-semibold">Jane Doe</h3>
+                    <p class="text-gray-600">CEO & Founder</p>
+                </div>
+                <div class="p-6 bg-gray-100 rounded-lg shadow-lg" data-aos="flip-left" data-aos-delay="100">
+                    <h3 class="text-xl font-semibold">John Smith</h3>
+                    <p class="text-gray-600">Lead Designer</p>
+                </div>
+                <div class="p-6 bg-gray-100 rounded-lg shadow-lg" data-aos="flip-left" data-aos-delay="200">
+                    <h3 class="text-xl font-semibold">Emily Johnson</h3>
+                    <p class="text-gray-600">Head of Development</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Our Values Section -->
+<section class="py-16 px-6 bg-gray-100" data-aos="fade-up">
+    <div class="container mx-auto text-center">
+        <h2 class="text-3xl font-bold text-green-600 mb-6">Our Values</h2>
+        <p class="text-gray-700 max-w-3xl mx-auto">We believe in creativity, sustainability, and customer satisfaction. Every project we take on reflects our commitment to excellence.</p>
+    </div>
+</section>
+
+<!-- Our Journey Section -->
+<section class="py-16 px-6 bg-white" data-aos="fade-left">
+    <div class="container mx-auto flex flex-col md:flex-row items-center">
+        <div class="w-full md:w-1/2">
+            <h2 class="text-3xl font-bold text-green-600 mb-4">Our Journey</h2>
+            <p class="text-gray-700">From a small team to a global brand, our journey has been fueled by passion and innovation. We continue to grow, evolve, and inspire.</p>
+        </div>
+        <div class="w-full md:w-1/2 mt-6 md:mt-0">
+            <img src="/we-champion-image.jpg" alt="Our Journey" class="w-full rounded-lg shadow-md">
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section class="py-16 px-6 bg-gray-100" data-aos="fade-right">
+    <div class="container mx-auto text-center">
+        <h2 class="text-3xl font-bold text-green-600 mb-6">Why Choose Us?</h2>
+        <p class="text-gray-700 max-w-3xl mx-auto">We combine expertise with innovation to deliver outstanding results. Our clients trust us for quality, reliability, and creative solutions.</p>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="py-16 px-6 bg-white" data-aos="zoom-in">
+    <div class="container mx-auto text-center">
+        <h2 class="text-3xl font-bold text-green-600 mb-6">What Our Clients Say</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="p-6 bg-gray-50 rounded-lg shadow-md">
+                <p class="text-gray-700 italic">"The best team to work with! Their creativity and professionalism exceeded our expectations."</p>
+                <h4 class="mt-4 font-bold text-green-500">- Client Name</h4>
+            </div>
+            <div class="p-6 bg-gray-50 rounded-lg shadow-md">
+                <p class="text-gray-700 italic">"Absolutely love the work they did for us. We saw real results!"</p>
+                <h4 class="mt-4 font-bold text-green-500">- Another Client</h4>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    
+    <!--Footer-->
+    <footer class="bg-[url('/cork-background.png')] bg-cover bg-no-repeat text-white p-12">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between">
+            <!-- Left Section -->
+            <div class="md:w-1/3 space-y-6 text-center md:text-left">
+                <div class="w-full flex justify-center md:justify-start">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="262" height="55" viewBox="0 0 261.72 55.15" class="ps-logo">
+                    <path class="letter p" d="M14.12,8.07A13.42,13.42,0,0,0,1.57,15.49h0A14.58,14.58,0,0,0,0,22L0,43.63H7.77v-9a14.77,14.77,0,0,0,6.34,1.33c9.54,0,14.13-7.51,14.13-13.93S23.66,8.07,14.12,8.07Zm0,20.54a6.62,6.62,0,1,1,6.27-6.95c0,.12,0,.23,0,.34a6.38,6.38,0,0,1-6.15,6.61h-.13Z"></path>
+                    <path class="letter o" d="M44.05,8.07c-9.54,0-14.12,7.51-14.12,13.93s4.58,13.93,14.12,13.93S58.17,28.42,58.17,22,53.58,8.07,44.05,8.07Zm0,20.54a6.62,6.62,0,1,1,6.27-6.95c0,.12,0,.23,0,.34a6.38,6.38,0,0,1-6.16,6.61h-.12Z"></path>
+                    <path class="letter first-t" d="M64.31,0a1.39,1.39,0,0,0-1.4,1.4h0V9.56L57.15,7.45l-1,1.26,6.77,6.14V35h7.82V0Z"></path>
+                    <path class="dot t-dot secondary-colour" d="M55.2.18H50.89s.71,2.7.94,3.53S53.09,6,55.59,6H59.9S59.2,3.29,59,2.46,57.71.17,55.2.17Z"></path>
+                    <path class="letter second-t" d="M80,0H73.53l0,35h7.83V14.69h3.78V8.74H81.39l0-7.34A1.42,1.42,0,0,0,80,0Z"></path>
+                    <path class="letter i" d="M87.48,35h7.83V10.15a1.41,1.41,0,0,0-1.4-1.41H87.48V35Z"></path>
+                    <path class="dot i-dot secondary-colour" d="M92.38.18c-2.51,0-3.52,1.45-3.76,2.28S87.68,6,87.68,6H92c2.5,0,3.52-1.46,3.76-2.29s.94-3.53.94-3.53Z"></path>
+                    <path class="letter n" d="M98.62,8.74V35h7.84V20.68c0-1.6,0-5.48,4.49-5.48,4.1,0,4.1,3.59,4.1,5.44v14.3h7.84V18.56c0-5.15-1.6-7.22-3-8.45a11.25,11.25,0,0,0-6.7-2.27c-4.68,0-6.33,2.41-7.13,3.68h-.1V10.15a1.41,1.41,0,0,0-1.41-1.41Z"></path>
+                    <path class="letter g" d="M152.79,41a8.66,8.66,0,0,0-6.53-2.93h-13a1.07,1.07,0,0,1,0-2.11h6.55c9.29-.19,13.76-7.58,13.76-13.92S148.94,8.1,139.4,8.1,125.28,15.61,125.28,22a14.46,14.46,0,0,0,3,8.83,6.88,6.88,0,0,0-3.09,6.06c0,3.92,3.75,5.87,5.15,6.44a9,9,0,0,0,1.47,9.49c1.48,1.74,3.83,2.32,6.72,2.3l9.29-.16a7.25,7.25,0,0,0,5-2.18,9.07,9.07,0,0,0,0-11.82Zm-13.4-25.57a6.62,6.62,0,1,1-6.27,7c0-.11,0-.23,0-.34a6.39,6.39,0,0,1,6.17-6.61Zm6.71,33.19h-7.58a1.72,1.72,0,0,1-1.42-2,1.74,1.74,0,0,1,1.35-1.41h7.7a1.71,1.71,0,0,1-.05,3.37Z"></path>
+                    <path class="dot g-dot secondary-colour" d="M150.42,2.48c-2.5,0-3.52,1.46-3.75,2.29s-.94,3.54-.94,3.54H150c2.5,0,3.52-1.46,3.76-2.29s.94-3.54.94-3.54Z"></path>
+                    <path class="letter s secondary-colour" d="M167.92,16.11c0-.57-.14-2-2.45-2-1.66,0-2.22,1-2.22,1.75,0,1.42,1.94,2.22,4,2.84,4.44,1.22,9.16,2.55,9.16,8.21s-4.86,8.92-10.67,8.92c-4,0-10-1.79-10.67-8.68h7.79a2.79,2.79,0,0,0,3,2.41c1.33,0,2.74-.76,2.74-2,0-2-1.93-2.27-6.94-4.2-3.4-1.09-6.23-3.3-6.23-6.85,0-5.19,4.72-8.64,10.15-8.64,3.45,0,9.4,1.37,10.06,8.26Z"></path>
+                    <path class="letter h secondary-colour" d="M178.23,0h6.44a1.4,1.4,0,0,1,1.4,1.4v9.74h.1c1.32-2.36,4-3.3,6.75-3.3,2.5,0,5.47.9,7.13,2.88,2.22,2.6,2.45,4.91,2.45,9.58V35h-7.83V20.68c0-1.27,0-5.47-4.2-5.47-4.4,0-4.4,3.92-4.4,5.19V35h-7.84V0Z"></path>
+                    <path class="letter e secondary-colour" d="M231.1,23.74c0,.66-.08,1.4-.17,2a.14.14,0,0,1-.14.12H216.71V19.22h6.41a5.11,5.11,0,0,0-5.32-4.56c-5.09,0-6.22,4.4-6.22,7.26,0,5.34,3.59,7.44,6.65,7.44l4.14,0V36h-4.14A13.87,13.87,0,0,1,204.38,22.1c0-7.3,4.6-14,13.37-14,9.87,0,14,7.71,13.35,15.68Z"></path>
+                    <path class="letter d secondary-colour" d="M260.33.12H254v9a14.77,14.77,0,0,0-6.34-1.33c-9.54,0-14.12,7.51-14.12,13.93s4.58,13.93,14.12,13.93h0a13.42,13.42,0,0,0,12.55-7.42,14.46,14.46,0,0,0,1.56-6.48c0-2,0-15.77,0-20.26A1.4,1.4,0,0,0,260.33.12Zm-12,28.24a6.62,6.62,0,0,1-6.95-6.27c0-.11,0-.23,0-.34a6.39,6.39,0,0,1,6.17-6.61h.11a6.62,6.62,0,0,1,.68,13.22Z"></path>
+                </svg>
+                </div>
+  
+                <div class="flex items-center bg-gray-100 rounded-full px-4 py-2 w-full max-w-[320px]">
+                  <input type="email" id="email-input" placeholder="Your email goes here" 
+                      class="focus:ring-0 focus:border-transparent bg-transparent flex-1 text-pink-600 placeholder-pink-400 outline-none px-2 ">
+                  <button id="subscribe-button" 
+                      class="bg-pink-600 text-white px-3 py-2 right-2.5 rounded-full font-semibold hover:bg-white dynamic-hover transition ">
+                      Subscribe
+                  </button>
+              </div>            
+                       
+                <div class="flex flex-wrap justify-center md:justify-start items-center space-x-4 md:space-x-6 text-white text-lg mt-10 pt-10">
+                  <a href="https://pottingshed.com/" class="hover:underline">Facebook</a>
+                  <a href="https://pottingshed.com/" class="hover:underline">LinkedIn</a>
+                  <a href="https://pottingshed.com/" class="hover:underline">Instagram</a>
+                  <a href="https://pottingshed.com/" class="hover:underline">Pinterest</a>
+                  <a href="https://pottingshed.com/" class="hover:underline">Behance</a>
+              </div>
+              
+            </div>
+    
+            <!-- Right Section (Hidden below 800px) -->
+            <div class="hidden lg:flex lg:w-1/3 justify-end space-x-12">
+                <div>
+                    <h1 class="font-bold text-xl dynamic-color">Guernsey</h1>
+                    <p class="leading-relaxed">Trinity Square<br>St Peter Port<br>Guernsey<br>GY1 1LX</p>
+                    <p><a href="tel:01481727699" class="hover:underline">01481 727699</a></p>
+                    <p><a href="mailto:gsy@pottingshed.com" class="hover:underline">gsy@pottingshed.com</a></p>
+                    <p><a href="https://pottingshed.com/" class="hover:underline">View map</a></p>
+                </div>
+                <div>
+                    <h1 class="font-bold text-xl dynamic-color">Jersey</h1>
+                    <p class="leading-relaxed">First Floor, 3 Mulcaster St<br>St Helier<br>Jersey<br>JE2 3NJ</p>
+                    <p><a href="tel:01534781658" class="hover:underline">01534 781658</a></p>
+                    <p><a href="mailto:jsy@pottingshed.com" class="hover:underline">jsy@pottingshed.com</a></p>
+                    <p><a href="https://pottingshed.com/" class="hover:underline">View map</a></p>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Bottom Section -->
+        <div class="container mx-auto mt-12 flex flex-col md:flex-row justify-between items-center text-base text-white text-center">
+            <div class="order-2 md:order-1 flex space-x-6 mt-6 md:mt-0">
+                <a href="https://pottingshed.com/" class="hover:underline">Privacy Policy</a>
+            </div>
+            <div class="order-1 md:order-2 bg-teal-500 p-3 rounded-full cursor-pointer flex items-center justify-center w-12 h-12">
+                <span class="text-white text-xl">&#x1F4AC;</span>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const cursor = document.getElementById("custom-cursor");
+          
+            const colors = [
+              "text-blue-500",
+              "text-red-500",
+              "text-green-500",
+              "text-yellow-500",
+              "text-purple-500",
+            ];
+            const bgColors = [
+              "bg-blue-500",
+              "bg-red-500",
+              "bg-green-500",
+              "bg-yellow-500",
+              "bg-purple-500",
+            ];
+            const textHoverColors = [
+              "hover:text-blue-500",
+              "hover:text-red-500",
+              "hover:text-green-500",
+              "hover:text-yellow-500",
+              "hover:text-purple-500",
+            ];
+            const borderHoverColors = [
+              "hover:border-blue-500",
+              "hover:border-red-500",
+              "hover:border-green-500",
+              "hover:border-yellow-500",
+              "hover:border-purple-500",
+            ];
+            const svgColors = [
+              "fill-blue-500",
+              "fill-red-500",
+              "fill-green-500",
+              "fill-yellow-500",
+              "fill-purple-500",
+            ];
+            const placeholderColors = [
+              "placeholder-blue-500",
+              "placeholder-red-500",
+              "placeholder-green-500",
+              "placeholder-yellow-500",
+              "placeholder-purple-500",
+            ];
+            const hexColors = ["#3B82F6", "#EF4444", "#10B981", "#EAB308", "#A855F7"];
+            const cursorColor = ["#3B82F6", "#EF4444", "#10B981", "#EAB308", "#A855F7"];
+            let currentIndex = 0; // To track the current color index
+          
+            function changeDotColors(dColor) {
+                const shed = document.querySelectorAll(".secondary-colour");
+                shed.forEach((dot) => {
+                  dot.style.fill = dColor; // Try using style.fill
+                  dot.setAttribute("fill", dColor); // Ensure attribute change
+                });
+              }
+          
+            // Function to update favicon dynamically based on the theme
+            function dynamicColorShift(color) {
+              const svg = `
+                  <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="700.000000pt" height="700.000000pt" viewBox="0 0 700.000000 700.000000" preserveAspectRatio="xMidYMid meet">
+                  <g transform="translate(0.000000,700.000000) scale(0.100000,-0.100000)" fill="${color}" stroke="none">
+                  <path d="M6 6052 c-3 -2 16 -97 40 -194 2 -10 6 -26 8 -35 2 -10 25 -108 51 -218 25 -110 48 -207 50 -215 2 -8 13 -55 24 -105 12 -49 30 -130 42 -180 11 -49 22 -97 24 -105 2 -8 13 -55 25 -105 12 -49 23 -100 26 -112 2 -12 47 -204 99 -425 112 -474 102 -433 114 -483 36 -159 187 -787 222 -922 45 -178 133 -399 218 -548 18 -33 42 -76 53 -95 30 -53 108 -170 143 -215 111 -143 162 -202 255 -296 134 -134 208 -197 348 -298 178 -127 343 -219 527 -296 50 -20 99 -41 110 -46 60 -27 314 -103 411 -124 95 -20 227 -45 264 -50 25 -3 56 -8 70 -10 14 -3 54 -7 90 -10 36 -3 79 -8 95 -11 17 -3 852 -7 1856 -8 l1826 -3 -8 41 c-4 23 -26 120 -49 216 -23 96 -43 184 -45 195 -6 26 -52 228 -76 330 -21 90 -59 252 -64 275 -2 8 -17 76 -35 150 -35 148 -34 144 -50 215 -6 28 -22 97 -36 155 -14 58 -28 116 -30 130 -3 14 -12 52 -21 85 -16 64 -21 85 -29 125 -3 14 -16 70 -29 125 -62 258 -137 572 -141 592 -2 12 -27 116 -55 230 -28 114 -53 218 -55 231 -10 52 -86 269 -126 360 -253 576 -713 1055 -1285 1335 -276 135 -639 246 -923 282 -25 3 -56 8 -70 10 -14 2 -54 7 -90 11 -36 3 -83 8 -105 11 -42 6 -3664 11 -3669 5z m4649 -1377 c39 -10 111 -37 162 -60 177 -83 298 -243 329 -435 2 -14 6 -35 9 -46 3 -15 -1 -23 -13 -26 -9 -2 -134 -3 -277 -3 l-259 1 -7 32 c-15 75 -78 112 -181 108 -118 -5 -182 -96 -128 -183 30 -49 101 -88 245 -134 370 -117 447 -152 547 -251 90 -90 135 -210 133 -353 -3 -165 -52 -290 -159 -403 -53 -56 -151 -125 -227 -160 -48 -21 -173 -56 -244 -67 -48 -7 -217 -8 -265 -1 -278 41 -490 186 -582 396 l-23 53 -26 -39 c-97 -146 -271 -278 -452 -341 -85 -30 -86 -30 -203 -46 -86 -13 -271 -14 -324 -3 -14 2 -48 9 -75 15 -28 5 -85 21 -127 35 -42 14 -79 26 -81 26 -2 0 -4 -139 -4 -308 0 -170 -2 -313 -5 -318 -5 -7 -494 -12 -541 -5 -10 1 -4 1675 6 1712 68 259 135 386 277 530 139 142 289 221 495 263 161 33 397 22 544 -25 121 -39 245 -107 340 -188 57 -48 163 -173 175 -206 6 -16 12 -9 31 39 85 208 262 343 526 401 85 18 291 13 384 -10z m1006 -1440 c191 -68 247 -313 104 -459 -180 -183 -493 -39 -473 218 15 183 197 301 369 241z"/>
+                  <path d="M2858 4165 c-2 -2 -23 -5 -48 -8 -115 -15 -217 -75 -286 -169 -68 -92 -95 -176 -95 -293 1 -347 335 -571 635 -424 97 48 172 126 217 228 28 63 34 102 34 206 -1 210 -119 376 -312 439 -42 13 -138 27 -145 21z"/>
+                  <path d="M3879 3723 c0 -4 -2 -46 -4 -93 -4 -71 -25 -172 -61 -297 l-6 -23 217 -2 217 -3 13 -38 c26 -77 100 -126 190 -127 75 0 125 18 167 60 34 33 38 43 38 87 0 45 -13 76 -45 109 -23 24 -136 73 -325 143 -207 76 -324 129 -371 168 -16 14 -29 21 -30 16z"/>
+                  </g>
+                </svg>
+              `;
+          
+              const encodedSvg = `data:image/svg+xml,${encodeURIComponent(svg)}`;
+              document.getElementById("dynamic-favicon").setAttribute("href", encodedSvg);
+            }
+          
+            const updateDynamicColors = () => {
+              // Select elements
+              const dynamicElements = document.querySelectorAll(".dynamic-color");
+              const bgElements = document.querySelectorAll(".dynamic-bg, .preloader");
+              const emailInput = document.getElementById("email-input");
+              const subscribeButton = document.getElementById("subscribe-button");
+              const dynamicBg = document.getElementById("dynamic-bg");
+              const dynamicHoverElements = document.querySelectorAll(".dynamic-hover");
+              const animatedShapes = document.querySelectorAll("#animated-shape");
+          
+              // Remove only dynamic classes, keeping other necessary styles
+              dynamicElements.forEach((el) => el.classList.remove(...colors));
+              bgElements.forEach((el) => el.classList.remove(...bgColors));
+              emailInput.classList.remove(...colors, ...placeholderColors);
+              subscribeButton.classList.remove(...bgColors);
+              //dynamicBg.classList.remove(...bgColors);
+              dynamicHoverElements.forEach((el) =>
+                el.classList.remove(...textHoverColors, ...borderHoverColors)
+              );
+              animatedShapes.forEach((el) => el.classList.remove(...svgColors));
+          
+              // Apply new colors
+              const selectedTextColor = colors[currentIndex];
+              const selectedBgColor = bgColors[currentIndex];
+              const selectedTextHover = textHoverColors[currentIndex];
+              const selectedBorderHover = borderHoverColors[currentIndex];
+              const selectedSvgColor = svgColors[currentIndex];
+              const selectedPlaceholder = placeholderColors[currentIndex];
+              const selectedHexColor = hexColors[currentIndex];
+              const selectedCursorColor = cursorColor[currentIndex];
+          
+              // Apply new color classes without breaking other styles
+              dynamicElements.forEach((el) => el.classList.add(selectedTextColor));
+              bgElements.forEach((el) => el.classList.add(selectedBgColor));
+              emailInput.classList.add(selectedTextColor, selectedPlaceholder);
+              subscribeButton.classList.add(selectedBgColor);
+              //dynamicBg.classList.add(selectedBgColor);
+              dynamicHoverElements.forEach((el) =>
+                el.classList.add(selectedTextHover, selectedBorderHover)
+              );
+              animatedShapes.forEach((el) => el.classList.add(selectedSvgColor));
+          
+              // Update cursor color dynamically
+              document.documentElement.style.setProperty(
+                "--cursor-color",
+                selectedCursorColor
+              );
+          
+              // Update the favicon dynamically
+              // dynamicColorShift(selectedCursorColor);
+          
+              // Update the favicon dynamically
+              dynamicColorShift(selectedHexColor);
+          
+              setTimeout(() => {
+                changeDotColors(selectedHexColor, selectedHexColor); // Change to orange and green
+              }, 100);
+          
+              // Move to the next color, loop back when reaching the end
+              currentIndex = (currentIndex + 1) % colors.length;
+            };
+          
+            // Initial call
+            updateDynamicColors();
+          
+            // Change color every 5 seconds
+            setInterval(updateDynamicColors, 2000);
+          
+            // Move the cursor with mouse movement
+            document.addEventListener("mousemove", function (event) {
+              cursor.style.left = event.clientX + "px";
+              cursor.style.top = event.clientY + "px";
+            });
+          });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const navIcon = document.getElementById("nav-icon2"); // The button to toggle the menu
+            const closeButton = document.getElementById("closeButton"); // The close button
+            const menuOverlay = document.getElementById("menuOverlay"); // The overlay menu
+        
+            // Function to toggle menu visibility
+            function toggleMenu() {
+                menuOverlay.classList.toggle("active");
+                navIcon.classList.toggle("open"); // Toggle animation for the hamburger icon
+                const menuItems = document.querySelectorAll(".modal-menu-overlay ul li");
+                const addressItems = document.querySelectorAll(".modal-menu-overlay .address-item");
+        
+                if (menuOverlay.classList.contains("active")) {
+                    menuItems.forEach((item, index) => {
+                        item.style.transition = "opacity 0.5s ease-out, transform 0.5s ease-out";
+                        item.style.transitionDelay = `${index * 0.2}s`;
+                        item.style.opacity = "1";
+                        item.style.transform = "translateX(0)";
+                    });
+        
+                    // Animate address items with delay after menu items
+                    addressItems.forEach((item, index) => {
+                        item.style.transition = "opacity 0.5s ease-out, transform 0.5s ease-out";
+                        item.style.transitionDelay = `${(menuItems.length + index) * 0.2}s`;
+                        item.style.opacity = "1";
+                        item.style.transform = "translateY(0)";
+                    });
+                } else {
+                    menuItems.forEach((item) => {
+                        item.style.opacity = "0";
+                        item.style.transform = "translateX(-50px)";
+                        item.style.transitionDelay = "0s";
+                    });
+        
+                    addressItems.forEach((item) => {
+                        item.style.opacity = "0";
+                        item.style.transform = "translateY(50px)";
+                        item.style.transitionDelay = "0s";
+                    });
+                }
+            }
+        
+            // Toggle menu on clicking the nav icon
+            navIcon.addEventListener("click", function (event) {
+                event.preventDefault();
+                toggleMenu();
+            });
+        
+            // Close menu when clicking the close button
+            closeButton.addEventListener("click", function () {
+                toggleMenu();
+            });
+        
+            // Close menu if clicking outside the menu content
+            menuOverlay.addEventListener("click", function (event) {
+                if (event.target === menuOverlay) {
+                    toggleMenu();
+                }
+            });
+        });
+             
+
+        let lastScrollY = window.scrollY;
+const header = document.querySelector(".header");
+
+window.addEventListener("scroll", () => {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down and header is out of view
+        header.classList.add("hide-header");
+    } else if (currentScrollY < lastScrollY) {
+        // Scrolling up
+        header.classList.remove("hide-header");
+    }
+
+    lastScrollY = currentScrollY;
+});
+
+    </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+        });
+    </script>
 </body>
 </html>
